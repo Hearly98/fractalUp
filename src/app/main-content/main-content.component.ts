@@ -12,11 +12,15 @@ import { SearchBarComponent } from '../components/search-bar/search-bar.componen
 export class MainContentComponent implements OnInit{
   @Input() searchFilter = ''
   filterText:string = ''
+  @Input() selectedContinents:string[] = []
   ngOnInit(): void {
-      
   }
 
-  applyFilter(filterText: string) {
+  applyFilterSearch(filterText: string):void {
     this.filterText = filterText
+  }
+  applyContinentFilter(selectedContinents:string[]):void {
+    this.selectedContinents = selectedContinents
+    console.log(' filtrado en el padre continentes', this.selectedContinents)
   }
 }
