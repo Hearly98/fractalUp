@@ -1,12 +1,12 @@
 <div [id]="id"
 (click)="handleClick($event)"
 [ngClass]="{
-'fixed right-0 top-0 h-screen w-96 bg-white shadow-lg translate-x-0 duration-500 ease-in-out': true, 
+'fixed right-0 top-0 h-screen w-96 bg-white translate-x-0 duration-500 ease-in-out': true, 
     'translate-x-full': !isOpen,
     'translate-x-0': isOpen
 }">
 <div class=" py-3 px-3 flex flex-col justify-end items-end">
-        <button class="cursor-pointer" (click)="close()">X</button>
+        <button class="cursor-pointer font-bold" (click)="close()">X</button>
 </div>
 <div class="px-4">
         <ul *ngIf="country">
@@ -20,31 +20,31 @@
                   />
                 </div>
                 <ul class="flex flex-col col-span-2 ">
-                  <li class="text-sky-500 font-bold">
+                  <li class="text-sky-500 font-bold text-lg">
                     {{ country.name }}
                   </li>
-                  <li class="text-gray-500 text-sm">
+                  <li class="text-gray-500 text-lg">
                     {{ country.continent.name }}
                   </li>
                 </ul>
               </div>
-                <li *ngIf="country.capital">
-                    <p class="text-blue-500 font-bold">Capital: </p>
-                    <p class="text-gray-500">{{country.capital}}</p>
+                <li *ngIf="country.capital" class="flex gap-2 py-1">
+                    <p class="text-sky-500 font-bold text-lg">Capital:</p>
+                    <p class="text-gray-500 text-lg">{{ country.capital }}</p>
                 </li>
-                <li *ngIf="country.languages && country.languages.length > 0" >
-                    <p class="text-blue-500 font-bold">Language: </p>
-                        <select >
+                <li *ngIf="country.languages && country.languages.length > 0" class="flex gap-2 py-1">
+                    <p class="text-sky-500 font-bold text-lg">Language:</p>
+                        <select class="w-full text-gray-500">
                             <option *ngFor="let language of country.languages">{{language.name}}</option>
                         </select>
                 </li>
-                <li *ngIf="country.currencies && country.currencies.length > 0">
-                    <p class="text-blue-500 font-bold">Currency:</p>
-                    <p class="text-gray-500">{{country.currencies.join(', ')}}</p>
+                <li *ngIf="country.currencies && country.currencies.length > 0" class="flex gap-2 py-1">
+                    <p class="text-sky-500 font-bold text-lg" text-lg>Currency:</p>
+                    <p class="text-gray-500 text-lg">{{country.currencies.join(', ')}}</p>
                 </li>
-                <li *ngIf="country.states && country.states.length > 0">
-                    <p class="text-blue-500 font-bold">Region:</p>
-                        <select class="w-full">
+                <li *ngIf="country.states && country.states.length > 0" class="flex gap-2 py-1">
+                    <p class="text-sky-500 font-bold text-lg">Region:</p>
+                        <select class="w-full text-gray-500">
                             <option *ngFor="let state of country.states">{{state.name}}</option>
                         </select>
                 </li>

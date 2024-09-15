@@ -62,7 +62,6 @@ export class SearchBarComponent {
     }else{
       this.selectedContinents.splice(i, 1)
     }
-    console.log('Continentes seleccionados:', this.selectedContinents);
     this.applyFilters()
     this.cdr.detectChanges()
   }
@@ -71,12 +70,10 @@ export class SearchBarComponent {
     this.filterText.emit(this.searchText)
     this.filterContinent.emit(this.selectedContinents)
     this.cdr.detectChanges()
-    this.closeModal()
   }
   clearFilter():void{
     this.searchText = ''
     this.selectedContinents = []
     this.applyFilters()
-    this.closeModal()
   }
 }
