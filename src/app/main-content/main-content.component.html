@@ -1,4 +1,4 @@
-<div class="flex h-screen max-h-full flex-col gap-10 p-8">
+<div class="flex h-full flex-col gap-10 p-8">
     <app-search-bar (filterText)="applyFilterSearch($event)" (filterContinent)="applyContinentFilter($event)"/>
     <app-country [searchFilter]="filterText" [selectedContinents]="selectedContinents"/>
 </div>

@@ -6,7 +6,7 @@
       class="rounded-3xl"
       [ngClass]="{
         'bg-sky-500 text-white': country.code === selectedCode,
-        'hover:bg-sky-500 hover:rounded-3xl shadow-inner shadow-md shadow-gray-400 bg-slate-50 hover:text-white': country.code !== selectedCode
+        'hover:bg-sky-500 hover:rounded-3xl shadow-inner shadow-gray-400 bg-slate-50 hover:text-white': country.code !== selectedCode
       }"
     >
       <img class="h-36 w-full rounded-t-3xl" [src]="countryImages[country.code] || 'path/to/default-image.jpg'" [alt]="country.name">
