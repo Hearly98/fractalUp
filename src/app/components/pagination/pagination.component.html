@@ -1,0 +1,4 @@
+<div class="flex gap-4 p-2">
+    <button class="border-2 p-1 bg-slate-50 font-bold" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <button class="border-2 p-1 bg-slate-50 font-bold" (click)="nextPage()" [disabled]="currentPage === allPages">Siguiente</button>
+</div>

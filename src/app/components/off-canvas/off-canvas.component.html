@@ -1,0 +1,53 @@
+<div [id]="id"
+(click)="handleClick($event)"
+[ngClass]="{
+'fixed right-0 top-0 h-screen w-96 bg-white shadow-lg translate-x-0 duration-500 ease-in-out': true, 
+    'translate-x-full': !isOpen,
+    'translate-x-0': isOpen
+}">
+<div class=" py-3 px-3 flex flex-col justify-end items-end">
+        <button class="cursor-pointer" (click)="close()">X</button>
+</div>
+<div class="px-4">
+        <ul *ngIf="country">
+            <img class="p-2 w-full rounded-3xl" [src]="selectedImage || 'path/to/default-image.jpg'" [alt]="country.name">
+                <div
+                class="flex columns-2 p-3 gap-3">
+                <div class="flex items-center col-span-1">
+                  <img
+                    [src]="'https://flagsapi.com/' + code + '/flat/64.png'"
+                    alt="{{ country.name }} flag"
+                  />
+                </div>
+                <ul class="flex flex-col col-span-2 ">
+                  <li class="text-sky-500 font-bold">
+                    {{ country.name }}
+                  </li>
+                  <li class="text-gray-500 text-sm">
+                    {{ country.continent.name }}
+                  </li>
+                </ul>
+              </div>
+                <li *ngIf="country.capital">
+                    <p class="text-blue-500 font-bold">Capital: </p>
+                    <p class="text-gray-500">{{country.capital}}</p>
+                </li>
+                <li *ngIf="country.languages && country.languages.length > 0" >
+                    <p class="text-blue-500 font-bold">Language: </p>
+                        <select >
+                            <option *ngFor="let language of country.languages">{{language.name}}</option>
+                        </select>
+                </li>
+                <li *ngIf="country.currencies && country.currencies.length > 0">
+                    <p class="text-blue-500 font-bold">Currency:</p>
+                    <p class="text-gray-500">{{country.currencies.join(', ')}}</p>
+                </li>
+                <li *ngIf="country.states && country.states.length > 0">
+                    <p class="text-blue-500 font-bold">Region:</p>
+                        <select class="w-full">
+                            <option *ngFor="let state of country.states">{{state.name}}</option>
+                        </select>
+                </li>
+        </ul>
+      </div>
+  </div>

@@ -1,0 +1,8 @@
+<div class="flex flex-col bg-zinc-500 w-full h-screen p-5 gap-2 text-lg">
+    <div class="bg-gray-300 text-center py-5 px-16 rounded-lg">
+        <p class="text-zinc-500 font-bold">Logo</p>
+    </div>
+    <ul >
+        <li *ngFor="let item of list_item" [routerLink]="item.path" class="text-slate-50 font-medium py-1 px-3 hover:bg-slate-50 hover:text-zinc-500 rounded">{{ item.name }}</li>
+    </ul>
+</div>

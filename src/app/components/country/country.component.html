@@ -1,0 +1,40 @@
+<div *ngIf="displayCountries" class="grid">
+  <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
+    <article
+      (click)="getCode(country.code)"
+      *ngFor="let country of displayCountries | filter : searchFilter"
+      class="bg-slate-50 rounded-3xl shadow container"
+    >
+      <img class="h-36 w-full rounded-t-3xl" [src]="countryImages[country.code] || 'path/to/default-image.jpg'" [alt]="country.name">
+      <div
+        class="flex columns-2 p-3 gap-3 hover:bg-blue-500 rounded-b-3xl hover:text-slate-50">
+        <div class="flex items-center col-span-1">
+          <img
+            [src]="'https://flagsapi.com/' + country.code + '/flat/64.png'"
+            alt="{{ country.name }} flag"
+          />
+        </div>
+        <ul class="flex flex-col col-span-2 ">
+          <li class="text-sky-500 font-bold">
+            {{ country.name }}
+          </li>
+          <li class="text-gray-500 text-sm">
+            {{ country.continent.name }}
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+  <app-pagination
+    [currentPage]="currentPage"
+    [allPages]="allPages"
+    (pageChance)="onChangePages($event)"
+  />
+  <app-off-canvas
+    class="absolute"
+    [isOpen]="isCanvasOpen"
+    (onClose)="closeCanvas()"
+    [selectedImage]="selectedImageCountry"
+    [code]="code"
+  />
+</div>
