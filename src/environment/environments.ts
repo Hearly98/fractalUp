@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    API_KEY: process.env['PIXABAY_API_KEY'] || ''
+    API_KEY: 'api_key'
   };
   
